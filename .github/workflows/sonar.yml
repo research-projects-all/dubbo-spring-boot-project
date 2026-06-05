@@ -33,7 +33,9 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mvn -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+          mvn -U -B clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+            -Drevision=2.7.10 \
+            -Ddubbo.version=2.7.10 \
             -DskipTests \
             -Dsonar.organization=research-projects-all \
             -Dsonar.projectKey=research-projects-all_dubbo-spring-boot-project
